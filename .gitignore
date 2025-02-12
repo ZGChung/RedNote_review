@@ -43,7 +43,7 @@ ENV/
 
 
 # secrets
-src/secrets.py
+# src/secrets.py
 
 # source files
 doc_to_review/
