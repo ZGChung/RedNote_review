@@ -11,14 +11,14 @@ from src.default_prompt import (
 )
 from src.secrets import LLM_MODEL
 
-st.title("RedNote Doc Review")
+st.title("RedNote Doc Review", anchor="center")
 st.write("Upload RedNote documents for automatic review")
 st.write(f"Backbone LLM: `{LLM_MODEL}`")
 
 # File upload
 example_files = list(Path("doc_to_review").glob("*.docx"))
 uploaded_files = st.file_uploader(
-    "Choose RedNote doc files, you can find some example files in the `doc_to_review` folder.",
+    "Choose RedNote doc files, try to play around with some `docx` files : )",
     type=["docx"],
     accept_multiple_files=True,
 )
