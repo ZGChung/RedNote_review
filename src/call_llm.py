@@ -20,14 +20,14 @@ def call_llm(
     client = OpenAI(
         base_url=api_base_url,
         api_key=api_key,
+        default_headers={
+            "HTTP-Referer": "https://rednote-doc-review.streamlit.app",
+            "X-Title": "RedNote Doc Review",
+        },
     )
 
     try:
         completion = client.chat.completions.create(
-            extra_headers={
-                "HTTP-Referer": "https://rednote-doc-review.streamlit.app",
-                "X-Title": "RedNote Doc Review",
-            },
             model=llm_model,
             messages=[
                 {
