@@ -1,12 +1,12 @@
 from openai import OpenAI
-from src.secrets import API_KEY, API_BASE_URL, LLM_MODEL
+from src.secrets import API_BASE_URL, LLM_MODEL
 
 
 def call_llm(
     system_prompt,
     user_prompt,
     text,
-    api_key=API_KEY,
+    api_key,
     api_base_url=API_BASE_URL,
     llm_model=LLM_MODEL,
 ):

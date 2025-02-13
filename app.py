@@ -15,6 +15,9 @@ st.title("RedNote Doc Review", anchor="center")
 st.write("Upload RedNote documents for automatic review")
 st.write(f"Backbone LLM: `{LLM_MODEL}`")
 
+# API key input
+api_key = st.text_input("Enter your OpenRouter API key:", type="password")
+
 # File upload
 example_files = list(Path("doc_to_review").glob("*.docx"))
 uploaded_files = st.file_uploader(
@@ -62,13 +65,13 @@ if uploaded_files:
             # Get suggestions
             with st.spinner("Getting suggestions... This may take a few moments."):
                 suggestion_response = call_llm(
-                    system_prompt, user_prompt_suggestion, full_text
+                    system_prompt, user_prompt_suggestion, full_text, api_key=api_key
                 )
 
             # Get better text
             with st.spinner("Getting improved text... This may take a few moments."):
                 better_text_response = call_llm(
-                    system_prompt, user_prompt_better_text, full_text
+                    system_prompt, user_prompt_better_text, full_text, api_key=api_key
                 )
 
             # Display suggestion with copy button
